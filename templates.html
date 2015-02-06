@@ -1,0 +1,56 @@
+<template name="home">
+  <h2>HackWimbledon HQ</h2>
+  <p>You are on the home screen of the HackWimbledon HQ.</p>
+</template>
+
+<template name='about'>
+  <h2>About this site</h2>
+</template>
+
+<template name='ideas'>
+  <div class='row'>
+    <div class="col-sm-4">
+      <h2>Ideas</h2>
+      <ul>
+        {{#each ideaList}}
+        <li class="{{ maybeSelected }}">
+          <a href="{{ pathFor 'ideas' }}"> {{title}} </a>
+        </li>
+        {{/each}}
+      </ul>
+    </div>
+    <div class="col-sm-8">
+      {{> idea selectedIdea}}
+    </div>
+  </div>
+</template>
+
+
+<template name='idea'>
+  <h2>{{ title }}</h2>
+  <p>{{ body }}</p>
+</template>
+
+<template name='projects'>
+  <div class='row'>
+    <div class="col-sm-4">
+      <h2>Projects</h2>
+      <ul>
+        {{#each ideaList}}
+        <li class="{{ maybeSelected }}">
+          <a href="{{ pathFor 'projects' }}"> {{title}} </a>
+        </li>
+        {{/each}}
+      </ul>
+    </div>
+    <div class="col-sm-8">
+      {{> project selectedProject}}
+    </div>
+  </div>
+</template>
+
+
+<template name='project'>
+  <h2>{{ title }}</h2>
+  <p>{{ body }}</p>
+</template>
