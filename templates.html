@@ -7,6 +7,7 @@
   <h2>About this site</h2>
 </template>
 
+
 <template name='ideas'>
   <div class='row'>
     <div class="col-sm-4">
@@ -14,7 +15,7 @@
       <ul>
         {{#each ideaList}}
         <li class="{{ maybeSelected }}">
-          <a href="{{ pathFor 'ideas' }}"> {{title}} </a>
+          <a href="{{ pathFor 'ideas' }}"> {{name}} </a>
         </li>
         {{/each}}
       </ul>
@@ -27,16 +28,17 @@
 
 
 <template name='idea'>
-  <h2>{{ title }}</h2>
-  <p>{{ body }}</p>
+  <h2>{{ name }}</h2>
+  <p>{{ description }}</p>
 </template>
+
 
 <template name='projects'>
   <div class='row'>
     <div class="col-sm-4">
       <h2>Projects</h2>
       <ul>
-        {{#each ideaList}}
+        {{#each projectList}}
         <li class="{{ maybeSelected }}">
           <a href="{{ pathFor 'projects' }}"> {{title}} </a>
         </li>
@@ -51,6 +53,30 @@
 
 
 <template name='project'>
+  <h2>{{ title }}</h2>
+  <p>{{ body }}</p>
+</template>
+
+<template name='people'>
+  <div class='row'>
+    <div class="col-sm-4">
+      <h2>People</h2>
+      <ul>
+        {{#each projectList}}
+        <li class="{{ maybeSelected }}">
+          <a href="{{ pathFor 'people' }}"> {{title}} </a>
+        </li>
+        {{/each}}
+      </ul>
+    </div>
+    <div class="col-sm-8">
+      {{> person selectedPerson}}
+    </div>
+  </div>
+</template>
+
+
+<template name='person'>
   <h2>{{ title }}</h2>
   <p>{{ body }}</p>
 </template>
