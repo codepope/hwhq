@@ -6,7 +6,7 @@ if (Meteor.isClient) {
         template === currentRoute.lookupTemplate() ? 'active' : '';
     }
   });
-  Template.articles.helpers({
+  Template.ideas.helpers({
     maybeSelected: function () {
       var currentRoute = Router.current();
       return currentRoute &&

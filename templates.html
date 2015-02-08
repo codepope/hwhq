@@ -1,6 +1,10 @@
 <template name="home">
   <h2>HackWimbledon HQ</h2>
   <p>You are on the home screen of the HackWimbledon HQ.</p>
+  <h3>Most liked ideas</h3>
+  <p>Coming soon</p>
+  <h3>Most active projects</h3>
+  <p>Coming soon</p>
 </template>
 
 <template name='about'>
@@ -11,11 +15,11 @@
 <template name='ideas'>
   <div class='row'>
     <div class="col-sm-4">
-      <h2>Ideas</h2>
+      <h2>Ideas <a href="{{ pathFor 'newIdea'}}">Add</a></h2>
       <ul>
         {{#each ideaList}}
         <li class="{{ maybeSelected }}">
-          <a href="{{ pathFor 'ideas' }}"> {{name}} </a>
+          <a href="{{ pathFor 'idea' }}"> {{ name }} </a>
         </li>
         {{/each}}
       </ul>
@@ -32,6 +36,21 @@
   <p>{{ description }}</p>
 </template>
 
+<template name='newIdea'>
+  <form>
+    <div class="form-group">
+      <label for="ninputName">Name:</label>
+      <input type="text" class="form-control" id="inputName" placeholder="Your idea's name..."/>
+     </div>
+     <div class="form-group">
+      <label for="description">Description</label>
+      <div class="col=xs-6">
+      <textarea class="form-control" name="inputDescription" placeholder="Describe your idea..."></textarea>
+     </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Propose this idea</button>
+  </form>
+</template>
 
 <template name='projects'>
   <div class='row'>
@@ -62,9 +81,9 @@
     <div class="col-sm-4">
       <h2>People</h2>
       <ul>
-        {{#each projectList}}
+        {{#each peopleList}}
         <li class="{{ maybeSelected }}">
-          <a href="{{ pathFor 'people' }}"> {{title}} </a>
+          <a href="{{ pathFor 'person' }}"> {{ handle }} </a>
         </li>
         {{/each}}
       </ul>

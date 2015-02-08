@@ -9,10 +9,24 @@ Router.map(function() {
   });
   this.route('ideas', {
     data: {
-      ideasList: function() {
-        return Ideas.find()
-      }
+      ideaList: function() { return Ideas.find() },
+      selectedIdea: { }
     }
+  }
+  );
+  this.route('idea', {
+    path: '/idea/:_id',
+    data: function () {
+      return {
+        ideaList: Ideas.find(),
+        selectedIdea: Ideas.findOne({_id: this.params._id})
+      }
+    },
+    template: 'ideas'
+  });
+  this.route('newIdea', {
+    path: '/new/idea',
+    template: 'newIdea'
   });
   this.route('projects');
   this.route('people');
